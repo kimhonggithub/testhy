@@ -28,40 +28,44 @@
         color: #6c757d;
         /* Set the icon color to match the input field */
     }
+    
 </style>
 
 @section('content')
 
-<div id="container1">
-    <div class="container pt-5">
+<div id="container1" class="py-5">
+    <div class="container pt-5 mb-2">
         <div class="row">
-            <div class="col pt-5">
+            <div class="col-md-6 ">
                 <div>
                     <div class="titletext1 text-white">
-                        <h5 style="font-size: 18px;">HandyHero</h5>
+                        <h5 class="fs-3 lead ">HandyHero</h5>
                     </div>
                     <div class="titletext2 text-white">
-                        <h1 style="font-size: 50px;">The easy, reliable way to take care of your home.</h1>
+                        <h1 style="font-size: 40px;">The easy, reliable way to take care of your home.</h1>
                     </div>
-                    <div class="form-outline">
-                        <input type="search" id="form1" class="form-control rounded" placeholder=" &#xf002; Search company or service that you need..." aria-label="Search" style="font-family: FontAwesome;" />
-
+                    <div class="form-outline mt-5">
+                        <input type="search" id="form1" class="form-control rounded-pill py-2" placeholder=" &#xf002; Search company or service that you need..." aria-label="Search" style="font-family: FontAwesome;" />
                     </div>
                 </div>
             </div>
-            <div class="col pt-5">
+            <div class="col-md-6">
                 <div class="bigpic">
                     <td>
-                        <img src="images/bigpic1.png" alt="bigpic" width="650" height="550">
+                        <img src="images/bigpic1.png" alt="bigpic"  width="550">
                     </td>
                 </div>
             </div>
+            <div class="col-12 ">
+                <p id="seemore" class="lead fs-6 text-info text-decoration-none " style="cursor:pointer"><i class="bi bi-arrow-down mx-2"></i>Scroll down to see more</p>
+            </div>
         </div>
+       
     </div>
 </div>
 
 
-<div class="container">
+<div id="mysection" class="container">
     <div class="col-7 py-4" style="font-size: 32px;">
         <h2 style="color: #203D4A;">Browse by category</h2>
     </div>
@@ -149,12 +153,12 @@
                 <div class="row g-0">
                     <div class="col-4 col-md-12 col-lg-4">
                         <div class="d-flex justify-content-center align-items-center h-100">
-                            <img src="/images/fixmelogo.png" alt="FixMeHome" class="img-fluid rounded-circle p-1" style="width: 80px;">
+                            <img src="/images/fixmelogo.png" alt="FixMeHome" class="img-fluid rounded-circle p-1" style="width: 60px;">
                         </div>
                     </div>
                     <div class="col-8 col-md-12 col-lg-8">
                         <div class="p-2">
-                            <h4 class="mb-2"><a href="/company_detail" class="text-decoration-none" style="color: #1383b5;">{{$company->company_name}}</a></h4>
+                            <h5 class="mb-2"><a href="/company_detail" class="text-decoration-none" style="color: #1383b5;">{{$company->company_name}}</a></h5>
                             <div class="d-flex align-items-center">
                                 <span class="fa fa-star star-checked mr-1"></span>
                                 <span class="mr-2"><strong>4.2</strong></span>
@@ -183,7 +187,12 @@
     </div><br>
 
 </div>
-
+<script>
+    document.getElementById('seemore').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('mysection').scrollIntoView({ behavior: 'smooth' });
+    });
+</script>
 
 
 
