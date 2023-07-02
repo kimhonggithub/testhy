@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Company\CompanyControllerManagement;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\maincontroller;
 
@@ -11,7 +12,7 @@ use App\Http\Controllers\logincontroller;
 
 //get from database 
 use App\Http\Controllers\companycontroller;
-
+use Faker\Provider\ar_JO\Company;
 
 Route::get('/homepage', function () {
     return view('userpage.homepage');
@@ -52,9 +53,8 @@ Route::get('/register-provider', function(){
 
 Route::get('/companylogin',[logincontroller::class, 'company_login']);
 Route::post('/companyLoggedIn',[logincontroller::class, 'company_loggedin'])->name('companyLoggedIn');
-Route::get('/companypage',function(){
-    return view('company.companypage');
-})->name('companypage');
+Route::get('/companypage',[CompanyControllerManagement::class,'listing'])->name('companypage');
+
 
 Route::get('/login', [logincontroller::class, 'user_login']);
 Route::post('/userLoggedIn', [logincontroller::class,'user_loggedin'])-> name('userLoggedIn');

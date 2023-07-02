@@ -28,8 +28,6 @@ class maincontroller extends Controller
             ->select('service_detail.*', 'service_cate.category')
             ->get();
 
-
-
         return view('userpage.service', [
             'servicedetail' => $db_service
         ]);
